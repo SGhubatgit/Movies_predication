@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix‑Style Movie Recommendation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>🎬 Movie Recommendation</h1>
+  </header>
+  <div class="container">
+    <form id="recommendForm">
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" name="genre" placeholder="e.g. Drama, Action" required>
+
+      <label for="min_rating">Minimum IMDb Rating:</label>
+      <input type="number" id="min_rating" name="min_rating" step="0.1" min="0" max="10" value="0">
+
+      <label for="max_rating">Maximum IMDb Rating:</label>
+      <input type="number" id="max_rating" name="max_rating" step="0.1" min="0" max="10" value="10">
+
+      <label for="top_n">Number of Results:</label>
+      <input type="number" id="top_n" name="top_n" min="1" max="20" value="5">
+
+      <div class="button-group">
+        <button type="submit">Get Recommendations</button>
+        <button type="button" id="resetBtn">Reset</button>
+      </div>
+    </form>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
